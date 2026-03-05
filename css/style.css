@@ -1,32 +1,43 @@
 /* ── Fonts ─────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Jost:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Google+Sans+Code:wght@300;400;500&display=swap');
+
+@font-face {
+  font-family: 'Gl-Medium';
+  src: url('../fonts/Gl-Medium.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
 
 /* ── Tokens ─────────────────────────────────────────────── */
 :root {
-  --green:        #326446;
-  --green-light:  #4a9466;
-  --green-dim:    rgba(50, 100, 70, 0.18);
-  --bg:           #0b0e0c;
-  --text:         #dce8e0;
-  --text-muted:   #6a8a75;
-  --white:        #ffffff;
-  --anim-fast:    0.9s;
-  --anim-medium:  1.2s;
+  --green: #326446;
+  --green-light: #4a9466;
+  --green-dim: rgba(50, 100, 70, 0.18);
+  --bg: #171717;
+  --text: #dce8e0;
+  --text-muted: #6a8a75;
+  --white: #ffffff;
+  --anim-fast: 0.9s;
+  --anim-medium: 1.2s;
 }
 
 /* ── Reset ──────────────────────────────────────────────── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html { font-size: 16px; }
+html {
+  font-size: 16px;
+}
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Jost', sans-serif;
+  font-family: 'Google Sans Code', monospace;
   font-weight: 300;
   min-height: 100svh;
   display: flex;
@@ -42,9 +53,9 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 90% 55% at 50% -5%,  rgba(50,100,70,.13) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 50% at 95% 95%,  rgba(50,100,70,.06) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 40% at 5%  80%,  rgba(50,100,70,.04) 0%, transparent 55%);
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(50, 100, 70, .13) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 95% 95%, rgba(50, 100, 70, .06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 5% 80%, rgba(50, 100, 70, .04) 0%, transparent 55%);
   pointer-events: none;
   z-index: 0;
 }
@@ -68,7 +79,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5rem 2rem 4rem;
+  padding: 2rem 2rem 2rem;
   width: 100%;
   max-width: 560px;
 }
@@ -76,15 +87,16 @@ main {
 .connector {
   width: 1px;
   height: 44px;
-  background: linear-gradient(to bottom, rgba(50,100,70,.6), transparent);
+  background: linear-gradient(to bottom, rgba(50, 100, 70, .6), transparent);
   margin-bottom: 2.4rem;
   opacity: 0;
   animation: fadeIn var(--anim-fast) ease 0.55s forwards;
 }
 
 .name {
-  font-family: 'Libre Caslon Display', serif;
-  font-size: 2.4rem;
+  font-family: 'Gl-Medium', serif;
+  font-size: 2.5rem;
+  -webkit-text-stroke: 0.1rem #171717;
   line-height: 1;
   text-align: center;
   opacity: 0;
@@ -94,7 +106,7 @@ main {
 
 .name-first {
   letter-spacing: 0.06em;
-  font-weight: 200;
+  font-weight: 100;
   color: var(--green-light);
   color: var(--white);
 }
@@ -110,7 +122,7 @@ main {
 .tagline {
   margin-top: 1rem;
   font-size: 0.7rem;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-muted);
   text-align: center;
@@ -131,7 +143,9 @@ main {
 /* ── Footer ─────────────────────────────────────────────── */
 footer {
   position: fixed;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
   text-align: center;
   padding: 1.4rem;
@@ -154,8 +168,13 @@ footer {
 }
 
 /* Logo element colors */
-#fill_6  { fill: var(--green); }
-#fill_9 { fill: var(--white); }
+#fill_6 {
+  fill: var(--green);
+}
+
+#fill_9 {
+  fill: var(--white);
+}
 
 #group_shadows {
   fill: black;
@@ -210,23 +229,55 @@ footer {
 }
 
 /* Logo Keyframes */
-@keyframes draw { to { stroke-dashoffset: 0; } }
-@keyframes color-change {
-  from { stroke: white; }
-  to { stroke: #0b0e0c; }
-}
-@keyframes ellipse-h {
-  from { rx: 0; ry: 0; }
-  to { rx: 400; ry: 10; }
-}
-@keyframes ellipse-v {
-  from { rx: 400; ry: 10; }
-  to { rx: 400; ry: 365; }
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
-/* ── Layout Keyframes ──────────────────────────────────── */
-@keyframes riseIn { to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes fadeIn { to { opacity: 1; } }
+@keyframes color-change {
+  to {
+    stroke: var(--bg);
+  }
+}
+
+@keyframes ellipse-h {
+  0% {
+    rx: 0;
+    ry: 0;
+  }
+
+  100% {
+    rx: 400;
+    ry: 10;
+  }
+}
+
+@keyframes ellipse-v {
+  0% {
+    rx: 400;
+    ry: 10;
+  }
+
+  100% {
+    rx: 400;
+    ry: 365;
+  }
+}
+
+/* Layout Keyframes */
+@keyframes riseIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 
 /* ── Social links ───────────────────────────────────────── */
 .socials {
@@ -262,8 +313,13 @@ footer {
   transition: width 0.3s ease;
 }
 
-.socials a:hover { color: var(--green-light); }
-.socials a:hover::after { width: 100%; }
+.socials a:hover {
+  color: var(--green-light);
+}
+
+.socials a:hover::after {
+  width: 100%;
+}
 
 .socials svg {
   width: 13px;
@@ -275,18 +331,24 @@ footer {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: rgba(50,100,70,.4);
+  background: rgba(50, 100, 70, .4);
   flex-shrink: 0;
 }
 
-/* ── Contact ────────────────────────────────────────────── */
-.contact {
+/* ── Contact Row ────────────────────────────────────────────── */
+.contact-row {
   margin-top: 1.8rem;
   opacity: 0;
   animation: fadeIn var(--anim-fast) ease 1.05s forwards;
+  display: flex;
+  gap: 0.7em;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.contact a {
+/* Mail button */
+
+.mail-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
@@ -296,24 +358,81 @@ footer {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   border: 1px solid var(--green-dim);
-  padding: 0.65em 1.5em;
+  padding: 0.5em 0.7em;
   border-radius: 2px;
   transition: color 0.3s, border-color 0.3s, background 0.3s;
+  background: transparent;
 }
 
-.contact a svg {
-  width: 12px;
-  height: 12px;
-  flex-shrink: 0;
-}
-
-.contact a:hover {
+.mail-btn:hover {
   color: var(--white);
-  border-color: rgba(50,100,70,.5);
-  background: rgba(50,100,70,.07);
+  border-color: rgba(50, 100, 70, .5);
+  background: rgba(50, 100, 70, .07);
 }
+
+.mail-btn .material-symbols-outlined {
+  font-size: 1.1em;
+  color: var(--green-light);
+  vertical-align: middle;
+}
+
+/* Contact button */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.65em 1.5em;
+  border-radius: 2px;
+  background: var(--green);
+  transition: background 0.3s, color 0.3s;
+  font-weight: 500;
+}
+
+.contact-btn .material-symbols-outlined {
+  font-size: 1.1em;
+  color: var(--white);
+  vertical-align: middle;
+}
+
+.contact-btn:hover {
+  background: var(--green-light);
+  color: var(--white);
+}
+
 @media (max-width: 420px) {
-  .corner { display: none; }
-  .logo-wrapper svg { width: 140px; }
-  .socials { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .corner {
+    display: none;
+  }
+
+  .logo-wrapper svg {
+    width: 140px;
+  }
+
+  .socials {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Mobile behavior */
+.line {
+  white-space: nowrap;
+}
+
+@media (max-width: 550px) {
+  .tagline {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .separator {
+    display: none;
+  }
 }
