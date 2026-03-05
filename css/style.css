@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Google+Sans+Code:wght@300;400;500&display=swap');
 
 @font-face {
-  font-family: 'Gl-Medium';
-  src: url('../fonts/Gl-Medium.otf') format('opentype');
+  font-family: 'GL-Medium';
+  src: url('../fonts/GL-Medium.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
 }
@@ -94,7 +94,7 @@ main {
 }
 
 .name {
-  font-family: 'Gl-Medium', serif;
+  font-family: 'GL-Medium', serif;
   font-size: 2.5rem;
   -webkit-text-stroke: 0.1rem #171717;
   line-height: 1;
